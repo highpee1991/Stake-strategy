@@ -191,7 +191,6 @@ const BetLogic = () => {
       resetInputFields();
     }
   };
-  console.log(continueClicked);
 
   return (
     <div>
