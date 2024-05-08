@@ -50,11 +50,11 @@ const InputControls = ({
             disabled={isValidOdd && continueClicked}
             id="oddInput"
           />
-          <div className=" flex items-center">
+          <div className=" flex items-center ">
             {isValidOdd && currentStatus === '' && (
               <div className=" mr-3">
                 <Button
-                  type={width > 640 ? 'small' : 'xtraSmall'}
+                  type={width < 640 ? `smaller` : `small`}
                   onClick={onCalculate}
                 >
                   Calculate Bet Amount
