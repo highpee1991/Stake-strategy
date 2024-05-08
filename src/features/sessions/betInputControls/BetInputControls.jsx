@@ -34,10 +34,13 @@ const InputControls = ({
 
   return (
     <>
+      <div className=" text-sm mt-2">
+        Odd must have two decimal places, e.g '2.30'.
+      </div>
       {currentStatus !== 'won' ? (
-        <div className=" mt-4 flex   items-center ">
+        <div className=" mt-4 flex items-center ">
           <input
-            className=" border-none outline-none bg-amber-100 rounded-xl py-2 px-4 font-semibold mr-3 sm:w-auto w-24"
+            className=" border-none outline-none bg-amber-100 rounded-xl py-2 px-4 font-semibold mr-3 sm:w-auto w-20"
             type="number"
             placeholder='Enter odd "e.g 2.00"'
             value={currentOdd}
@@ -45,6 +48,7 @@ const InputControls = ({
             required
             step="0.01"
             disabled={isValidOdd && continueClicked}
+            id="oddInput"
           />
           <div className=" flex items-center">
             {isValidOdd && currentStatus === '' && (
@@ -60,7 +64,7 @@ const InputControls = ({
             <div>
               {isCalculated && currentStatus === '' && (
                 <select
-                  className=" rounded-xl px-2 py-1.5 text-[12px] sm:px-4 sm:py-2 sm:text-lg outline-none border-none bg-amber-100"
+                  className=" rounded-xl px-4 py-2 text-[12px] sm:text-lg outline-none border-none bg-amber-100"
                   value={currentStatus}
                   onChange={e => setCurrentStatus(e.target.value)}
                 >
