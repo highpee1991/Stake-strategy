@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { getBankroll } from '../../bankroll/bankrollslice';
 import { useNavigate } from 'react-router-dom';
 import BetLogic from '../betLogic/BetLogic';
+import TutorialDisplay from '../../strategyTutorial/TutorialDisplay';
+import TutorialUI from '../../strategyTutorial/TutorialUI';
 
 const UnitUI = () => {
   const navigate = useNavigate();
@@ -16,10 +18,15 @@ const UnitUI = () => {
   }, [bankroll, navigate]);
 
   return (
-    <div className="">
-      <SessionBankrollManager />
-      <BetLogic />
-    </div>
+    <>
+      <div className=" xl:flex justify-center  lg:my-3">
+        <SessionBankrollManager />
+        <BetLogic />
+      </div>
+      <div className=" my-4">
+        <TutorialUI />
+      </div>
+    </>
   );
 };
 

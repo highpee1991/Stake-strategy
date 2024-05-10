@@ -37,7 +37,7 @@ const SessionBankrollManager = () => {
   }
 
   return (
-    <div>
+    <div className=" lg:mx-5 ">
       <div className=" mt-3 mb-1 flex items-center">
         {backButton}
         <div className=" ml-6">
