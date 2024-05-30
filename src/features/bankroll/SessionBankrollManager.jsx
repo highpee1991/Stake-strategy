@@ -10,7 +10,10 @@ import {
 } from './bankrollslice';
 import { formatCurrency } from '../utils/helper';
 import Button from '../ui/Button';
-import { getSessionWins } from '../sessions/betLogic/sessionsWinsSlice';
+import {
+  getSessionWins,
+  sessionsWinCount,
+} from '../sessions/betLogic/sessionsWinsSlice';
 
 const SessionBankrollManager = () => {
   const bankroll = useSelector(getBankroll);
@@ -25,6 +28,13 @@ const SessionBankrollManager = () => {
     dispatch(updateDividedBankroll(newDividedBankroll));
     dispatch(updateTarget(newTargetPerSessions));
   }, [bankroll, dispatch]);
+
+  useEffect(() => {
+    const storedSessionWins = localStorage.getItem('sessionWins');
+    if (storedSessionWins) {
+      dispatch(sessionsWinCount(parseFloat(storedSessionWins)));
+    }
+  }, [dispatch]);
 
   const backButton = bankroll > 0 && (
     <Button to={-1} type="back">

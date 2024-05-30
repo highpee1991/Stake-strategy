@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTarget } from '../../bankroll/bankrollslice';
 import InputControls from '../betInputControls/BetInputControls';
 import Button from '../../ui/Button';
-import { sessionsWinCount } from './sessionsWinsSlice';
+import { resetSessionsWin, sessionsWinCount } from './sessionsWinsSlice';
 
 const BetLogic = () => {
   const initialTarget = useSelector(getTarget);
@@ -189,6 +189,7 @@ const BetLogic = () => {
       setData(initialData);
       localStorage.setItem('betData', JSON.stringify(initialData));
       resetInputFields();
+      dispatch(resetSessionsWin());
     }
   };
 
